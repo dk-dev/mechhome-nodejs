@@ -15,23 +15,23 @@ MechHome currently relies on a Redis backend, meaning you must first [install Re
 config/mechhome.properties supplies parameters for the application and all plugins.
 
 The application won't do a whole lot without plugins defined:
-mechhome.plugins = <plugin name 1>,...,<plugin name N>
+mechhome.plugins = plugin name 1,...,plugin name N
 
 ## Extend
 
-Plugins are implemented by creating a plugins/<plugin_name>/index.js file with the following at a minimum:
+Plugins are implemented by creating a plugins/plugin_name/index.js file with the following at a minimum:
 
 function init(appHandle) {
-    appHandle.register('<plugin name>', function(type, obj) {
+    appHandle.register('plugin name', function(type, obj) {
         // Handle application events here
     });
 exports.init = init;
 
 The appHandle currently provides access to the following:
-* register('<plugin name>', callback) - This allows the plugin to receive event data
-* log('<type>', <object>) - Messaging to other plugins (rename might be in order)
-* config['<key>'] - Access to properties file
-* setZone(<oldZone>, <newZone>) - Modify a zone (see database.js:initialize() for example definition)
+* register('plugin name', callback) - This allows the plugin to receive event data
+* log('type', object) - Messaging to other plugins (rename might be in order)
+* config['key'] - Access to properties file
+* setZone(oldZone, newZone) - Modify a zone (see database.js:initialize() for example definition)
 
 See some of the existing plugins for more examples.
 
