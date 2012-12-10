@@ -1,0 +1,23 @@
+{
+    "name": "MechHome"
+  , "version": "0.1.0"
+  , "author": "Devon Crouse <devoncrouse@gmail.com>"
+  , "description": "A framework for DIY home automation and security monitoring in node.js"
+  , "scripts": { "start": "node ./mechhome.js"}
+  , "keywords": [ "mechhome", "home", "automation", "security" ]
+  , "license": "MIT"
+  , "repository": { "type": "git", "url": "https://github.com/devoncrouse/mechhome.git" }
+  , "main": "./mechhome.js"
+  , "engines": { "node": "*" }
+  , "dependencies": {
+  		"hashmap"				:	"*",
+  		"cloneextend"			:	"*",
+  		"loggly"				:	"*",
+  		"redis"					:	"*",
+  		"properties-parser"		:	"*",
+  		"serialport"			:	"*",
+  		"socket.io"				:	"*",
+  		"winston"				:	"*",
+  		"url"					:	"*"
+    }
+}

@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+
+<html>
+	<head>
+		<title>Security</title>
+		<link rel="stylesheet" type="text/css" href="css/main.css" />
+		<link rel="stylesheet" type="text/css" href="css/style.css" />
+		<meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0" />
+		<script src="https://raw.github.com/timrwood/moment/1.7.2/min/moment.min.js"></script>
+		<script type="text/javascript" src="http://code.jquery.com/jquery-latest.js"></script>
+		<script src="/socket.io/socket.io.js"></script>
+		<script type="text/javascript" src="/client.js"></script>
+
+		<script type="text/javascript">
+			jQuery(document).ready(function() {
+				$("#dashboard").click(function(e) {
+					var x = e.pageX - this.offsetLeft;
+					var y = e.pageY - this.offsetTop;
+					//alert("Click: " + x +', '+ y);
+					move(x, y);
+					//$('#status2').html(e.pageX +', '+ e.pageY);
+				});
+			})
+		</script>
+
+	</head>
+
+	<body onload="init();">
+		<div id="controls">
+			<div id="zones"></div>
+		</div>
+
+		<div id="notifications">
+			<div id="notificationHeader"></div>
+			<div id="notificationData"></div>
+
+		</div>
+
+		<div id="dashboard">
+			<!-- TODO: Make this configurable -->
+			<img id="dashboardimg" src="images/emerald.png"/>
+		</div>
+
+		<div id="zoneForm">
+			<form id="settings">
+				<table class="zonesettingstable">
+					<tr>
+						<th>Zone #</th>
+						<td>
+						<input type="text" disabled=true style="width: 50px;border-width=0;" id="zsIdInput" />
+						<br/>
+						</td>
+					</tr>
+
+					<tr>
+						<th>Name</th>
+						<td>
+						<input type="text" id="zsNameInput" />
+						<br/>
+						</td>
+					</tr>
+
+					<tr>
+						<th>Type</th>
+						<td>
+						<input type="text" rows="2" id="zsTypeInput" />
+						<br/>
+						</td>
+					</tr>
+					
+					<tr>
+						<th>X</th>
+						<td>
+						<input type="text" rows="2" id="zsXInput" />
+						<br/>
+						</td>
+					</tr>
+					
+					<tr>
+						<th>Y</th>
+						<td>
+						<input type="text" rows="2" id="zsYInput" />
+						<br/>
+						</td>
+					</tr>
+
+					<tr align="center">
+						<td colspan="2">
+						<input type="button" value="Save" onClick="saveConfig()" />
+						<input type="button" value="Close" onClick="closeConfig()" />
+						</td>
+					</tr>
+				</table>
+			</form>
+		</div>
+	</body>
+</html>

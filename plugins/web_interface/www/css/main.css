@@ -1,0 +1,73 @@
+html {
+	height: 100%;
+	width: 100%;
+}
+
+body {
+	font: normal 11px auto "Trebuchet MS", Verdana, Arial, Helvetica, sans-serif;
+	color: #4f6b72;
+	height: 90%;
+	width: 90%;
+}
+
+div#zoneForm {
+	background: -moz-linear-gradient(top,  rgba(224,224,224,0) 1%, rgba(215,215,215,0) 11%, rgba(212,212,212,1) 14%, rgba(142,142,142,1) 87%, rgba(139,139,139,0) 90%, rgba(130,130,130,0) 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(1%,rgba(224,224,224,0)), color-stop(11%,rgba(215,215,215,0)), color-stop(14%,rgba(212,212,212,1)), color-stop(87%,rgba(142,142,142,1)), color-stop(90%,rgba(139,139,139,0)), color-stop(100%,rgba(130,130,130,0))); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top,  rgba(224,224,224,0) 1%,rgba(215,215,215,0) 11%,rgba(212,212,212,1) 14%,rgba(142,142,142,1) 87%,rgba(139,139,139,0) 90%,rgba(130,130,130,0) 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top,  rgba(224,224,224,0) 1%,rgba(215,215,215,0) 11%,rgba(212,212,212,1) 14%,rgba(142,142,142,1) 87%,rgba(139,139,139,0) 90%,rgba(130,130,130,0) 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top,  rgba(224,224,224,0) 1%,rgba(215,215,215,0) 11%,rgba(212,212,212,1) 14%,rgba(142,142,142,1) 87%,rgba(139,139,139,0) 90%,rgba(130,130,130,0) 100%); /* IE10+ */
+	background: linear-gradient(to bottom,  rgba(224,224,224,0) 1%,rgba(215,215,215,0) 11%,rgba(212,212,212,1) 14%,rgba(142,142,142,1) 87%,rgba(139,139,139,0) 90%,rgba(130,130,130,0) 100%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00e0e0e0', endColorstr='#00828282',GradientType=0 ); /* IE6-9 */
+
+	display: none;
+	position: fixed;
+	bottom: -40px;
+	left: 20px;
+	height: 280px;
+	width: 600px;
+	padding-left: 40px;
+	padding-top: 60px;
+	z-index: 10;
+}
+
+div#controls {
+	position: fixed;
+	top: 20px;
+	left: 20px;
+	width: 300px;
+}
+
+div#notifications {
+	position: fixed;
+	bottom: 10px;
+	left: 20px;
+	width: 600px;
+	padding-top: 10px;
+	height: 240px;
+	z-index: 10;
+}
+
+div#dashboard {
+	position: fixed;
+	float: right;
+	text-align: right;
+	height: 90%;
+	top: 20px;
+	right: 200px;
+}
+
+img#dashboardimg {
+	display: block;
+	overflow: hidden;
+	 -webkit-transform: scale(1); /* Saf3.1+, Chrome */
+     -moz-transform: scale(1); /* FF3.5+ */
+      -ms-transform: scale(1); /* IE9 */
+       -o-transform: scale(1); /* Opera 10.5+ */
+          transform: scale(1);
+}
+
+img.alertimg {
+	height: 20px;
+	width: 20px;
+	z-index: 10;
+}
