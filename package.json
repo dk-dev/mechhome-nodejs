@@ -1,6 +1,6 @@
 {
-    "name": "MechHome"
-  , "version": "0.1.0"
+    "name": "mechhome"
+  , "version": "0.1.2"
   , "author": "Devon Crouse <devoncrouse@gmail.com>"
   , "description": "A framework for DIY home automation and security monitoring in node.js"
   , "scripts": { "start": "node ./mechhome.js"}
@@ -10,7 +10,7 @@
   , "main": "./mechhome.js"
   , "engines": { "node": "*" }
   , "dependencies": {
-  		"hashmap"				:	"*",
+  		"hashmap"				:	">= 0.9.2",
   		"cloneextend"			:	"*",
   		"loggly"				:	"*",
   		"redis"					:	"*",

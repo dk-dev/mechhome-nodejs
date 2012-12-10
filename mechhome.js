@@ -42,7 +42,7 @@ function log(type, obj) {
         return;
     }
 
-    plugins.each(function(name, pluginCallback) {
+    plugins.forEach(function(pluginCallback, name, map) {
         pluginCallback(type, obj);
     });
 }
