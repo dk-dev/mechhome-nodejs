@@ -21,7 +21,7 @@ function connect() {
         
         db.on('ready', function (err) {
             connected = true;
-            log('[Info] Connected to database');
+            log('info', 'Connected to database');
             initialize();
         });
     }
