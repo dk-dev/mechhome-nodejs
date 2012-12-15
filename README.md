@@ -17,10 +17,6 @@ config/mechhome.properties supplies parameters for the application and all plugi
 The application won't do a whole lot without plugins defined:
 mechhome.plugins = plugin name 1,...,plugin name N
 
-## Run
-
-node mechhome.js
-
 ### web_interface
 
 Provides a real-time frontend for MechHome using sockets. There are currently a couple of things hard-coded that you'll want to change:
@@ -48,6 +44,10 @@ Unfinished, but in theory allows instances of MechHome to forward events to othe
 ### demo
 
 Unfinished, but in theory allows for injecting events for the purpose of testing other plugins.
+
+## Run
+
+node mechhome.js
 
 ## Extend
 
