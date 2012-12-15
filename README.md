@@ -17,6 +17,10 @@ config/mechhome.properties supplies parameters for the application and all plugi
 The application won't do a whole lot without plugins defined:
 mechhome.plugins = plugin name 1,...,plugin name N
 
+## Run
+
+node mechhome.js
+
 ### web_interface
 
 Provides a real-time frontend for MechHome using sockets. There are currently a couple of things hard-coded that you'll want to change:
@@ -35,7 +39,7 @@ Logs through Winston (part of Flatiron.js). Haven't done much with this - it's n
 
 ### arduino_device
 
-Provides zone information via a USB serial interface. My implementation is connected to a siren/strobe, window, door, and motion sensors. More to come on that later (or bug me via email if you're dying for it).
+Provides node information via a USB serial interface. My implementation is connected to a siren/strobe, window, door, and motion sensors. More to come on that later (or bug me via email if you're dying for it).
 
 ### proxy
 
@@ -47,7 +51,9 @@ Unfinished, but in theory allows for injecting events for the purpose of testing
 
 ## Extend
 
-Plugins are implemented by creating a plugins/plugin_name/index.js file with the following at a minimum:
+### Plugins
+
+Plugins are extensions of MechHome that perform a wide variety of functions, and are implemented by creating a plugins/plugin_name/index.js file with the following at a minimum:
 
 	function init(appHandle) {
 	    appHandle.register('plugin name', function(type, obj) {
@@ -63,21 +69,40 @@ The appHandle currently provides access to the following:
 
 See some of the existing plugins for more examples.
 
+### Node types
+
+The node type is an emerging concept for defining the inputs and outputs of MechHome.  Doors, windows, motion sensors, and relays can all be represented with their own icons, messaging, etc. but should still be implemented consistently for easy extension of the application.  I've created shells for some basic types, but am still working to define the concept (see TODO's), and they are not currently used for anything.  Feedback welcome.
+
 ## TODO's
 
 This project is in early development, and any feedback/changes are appreciated.
 
-* UX/UI work for the web_interface plugin - I'm not a web developer and it shows...
-* Make web_interface socket host/port dynamic
+### Core
+
+* Evolve the concept of node types (i.e. what kind of different behaviors can be captured for each?)
+* Create node types for system alerts, lighting, X11, etc.  Should existing plugins, like arduino_device, be converted to node types?
+* Improve the way nodes are defined (i.e. not hard-coded in database.js:initialize())
+* Refactor 'zone' to 'node'
+* Create init/upstart scripts
+* Make some feature suggestions
+* Write some tests!
+
+### Plugins
+
 * Implement proxy plugin to allow MechHome processes on other machines to forward device data, etc.
 * Add implementation details (and Arduino code) for the arduino_device plugin (dcrouse)
-* Create 'device' plugins for system alerts, HVAC (e.g. Nest), lighting control, X11, etc.
-* Evolve the concept of zone types, with different behavior for doors vs. motion sensors, for example. Should types be plugins?
 * Create non-persistent 'database' plugin alternative to the current Redis-backed database.js.
-* Improve the way zones are defined (i.e. not hard-coded in database.js:initialize())
-* Finish demo plugin
-* Write some tests!
-* Lots more...
+* Finish demo plugin.  Maybe each node type and/or plugin should provide a demo method, called by this plugin?
+
+### web_interface plugin
+
+I'm calling this out separately because it needs a lot of love, and it's a major component of MechHome - I'm not a frontend developer and it shows.  The basic idea is that you can define an image (e.g. floorplan, dashboard) that will be overlayed with different icons for each node, depending on type, state, and possibly more.  The main thing I've accomplished with the interface at this point is real-time update.
+
+* Make web_interface socket host/port dynamic
+* Help create integration with the work-in-progress node types
+* Tabs for multiple floors/floorplan vs. dashboard/etc.
+* Mobile-friendly version for remote monitoring
+* Improve node configuration workflow/UI
 
 ## License
 
